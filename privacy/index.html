@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Privacy Policy</title>
+  <meta name="description" content="Privacy policy for the Claude Desktop extensions published at clementwalter.github.io/claude-extensions.">
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <header class="hero">
+    <div class="wrap">
+      <h1>Privacy Policy</h1>
+      <p class="lead">For every extension listed on <a href="../">Claude Extensions</a>. Effective 28 October 2026.</p>
+    </div>
+  </header>
+
+  <main class="wrap policy">
+    <h2>In short</h2>
+    <ul>
+      <li>Each extension runs on your Mac and talks only to the service it connects to (for example WhatsApp, Gmail or Notion).</li>
+      <li>Your sign-ins, messages and files are processed and stored on your Mac. Nothing is sent to the author of these extensions, and there is no analytics, telemetry, tracking or advertising.</li>
+      <li>What Claude reads through an extension becomes part of your Claude conversation and is handled by Anthropic under <a href="https://www.anthropic.com/legal/privacy" rel="noopener">its own privacy policy</a>, like anything else you share with Claude.</li>
+      <li>You stay in control: delete the local folders listed below, uninstall the extension, and revoke its access at the service.</li>
+    </ul>
+
+    <h2>Who this policy is from</h2>
+    <p>These extensions are open-source software written by an individual developer and published at <a href="https://github.com/ClementWalter" rel="noopener">github.com/ClementWalter</a>. They are not made or endorsed by Anthropic or by the services they connect to. The author operates no server for them and receives no data from them.</p>
+
+    <h2>How the extensions work</h2>
+    <p>An extension is a small program that Claude Desktop runs on your Mac. When you ask Claude something, Claude calls one of the extension's tools; the extension fetches the answer from the service, on your Mac, with your own account, and hands the result back to Claude. Anything that sends, changes or deletes something asks for your confirmation first.</p>
+    <p>On install, Claude Desktop downloads Python and the extension's open-source libraries from the Python Package Index and Python's build mirrors. Those downloads contain no personal data.</p>
+
+    <h2>What each extension accesses, and which service it talks to</h2>
+
+    <h3>iMessage</h3>
+    <p>Reads the Messages history of your Mac (<code>~/Library/Messages/chat.db</code>) and your Contacts names; sends messages you confirm through the Messages app. Talks to no online service itself: sending goes through Apple's Messages app. The optional iMessage Reader helper keeps a private copy of the message database in <code>~/Library/Application Support/imessage-cli</code> and is installed at <code>~/Applications/iMessage Reader.app</code>.</p>
+
+    <h3>WhatsApp</h3>
+    <p>Links to your WhatsApp account as a linked device, then receives, decrypts and stores your messages, contacts' names and group details on your Mac; sends the messages and files you ask it to. Talks only to WhatsApp's servers. Stores its keys in <code>~/.config/whatsapp-cli</code> and messages and media in <code>~/.cache/whatsapp-cli</code>.</p>
+
+    <h3>Telegram</h3>
+    <p>Signs in to your Telegram account as a linked device with the API id and hash you create, then reads chats, folders, messages and attachments, and sends what you confirm. Talks only to Telegram's servers. Stores its session and settings in <code>~/.config/tg-cli</code> and caches in <code>~/.cache/tg-cli</code>.</p>
+
+    <h3>Email</h3>
+    <p>Reads, searches and saves your email and attachments, and writes the drafts, replies and messages you confirm. With Gmail it talks only to Google (accounts.google.com and the Gmail API) through a Google Cloud project you own; with the Mac's Mail app it goes through Mail, which talks to your own mail providers. Stores sign-in tokens and settings in <code>~/.config/email-cli</code>; attachments go to the folder you choose.</p>
+
+    <h3>Google Drive</h3>
+    <p>Searches your Drive and reads Docs, Sheets and PDFs; writes to the spreadsheets you ask it to. Talks only to Google (the Drive, Docs and Sheets APIs) through a Google Cloud project you own. Stores sign-in tokens and settings in <code>~/.config/gdrive-cli</code>.</p>
+
+    <h3>Notion</h3>
+    <p>Copies your notion.so session from your browser, then reads and searches the pages, databases and comments your account can see, and makes the edits you confirm. Talks only to Notion. Stores the session and settings in <code>~/.config/notion-cli</code>; exports go to <code>~/Downloads/Notion</code>.</p>
+
+    <h3>Deezer</h3>
+    <p>Searches Deezer's public catalogue; with your browser's Deezer session (or the cookie you paste), reads your likes, playlists, Flow and listening history and makes the changes you confirm. Talks only to Deezer. Stores settings in <code>~/.config/deezer-cli</code> and caches in <code>~/.cache/deezer-cli</code>.</p>
+
+    <h3>Cafeyn, Franc-Tireur and miLibris kiosks</h3>
+    <p>Use your browser's session on the reading site to read the issues and articles your subscription gives you, and save PDFs, page images and text you ask for. Each talks only to its own site: cafeyn.co, franc-tireur.fr (and its miLibris kiosk), or the miLibris kiosk you read and miLibris' content servers. They store settings in <code>~/.config/cafeyn-cli</code> and <code>~/.config/milibris-cli</code>, and files in <code>~/Downloads/cafeyn</code>, <code>~/Downloads/franc-tireur</code> and <code>~/Downloads/milibris</code>.</p>
+
+    <h3>EcoleDirecte</h3>
+    <p>Signs in with the EcoleDirecte username and password you type in a page served on your own Mac, then reads grades, homework, timetable and school messages, and sends the messages you confirm. Talks only to EcoleDirecte. Stores the sign-in and session in <code>~/.config/ecoledirecte-cli</code>.</p>
+
+    <h3>MyOralia</h3>
+    <p>Copies your myoralia.fr session from Chrome, then reads your co-owner space (building, statement, meetings, contacts, documents) and saves the PDFs you ask for. Talks only to MyOralia. Stores the session in <code>~/.config/myoralia-cli</code>, caches in <code>~/.cache/myoralia-cli</code>, and documents in <code>~/Downloads/MyOralia</code> (or the folder you choose).</p>
+
+    <h3>RentalReady</h3>
+    <p>Uses your browser's session on pms.rentalready.io to read your owner space: property, reservations and their financial breakdown. Talks only to RentalReady. Stores settings in <code>~/.config/rentalready-cli</code> and caches in <code>~/.cache/rentalready-cli</code>.</p>
+
+    <h3>Merkl</h3>
+    <p>Reads public campaign data from Merkl's API (api.merkl.xyz). If you fill the optional settings, it also reads public blockchain data from the Ethereum RPC provider you chose, and sends your Merkl API key to Merkl only. Stores settings in <code>~/.config/merkl-cli</code>.</p>
+
+    <h3>OpenZeppelin Audits</h3>
+    <p>Uses your Chrome session on audits.openzeppelin.com to read your project's audit reports and to submit or remove the responses you confirm. Talks only to audits.openzeppelin.com. Stores settings in <code>~/.config/oz-audits</code>.</p>
+
+    <h3>Browser sessions</h3>
+    <p>Extensions that reuse a website login read that one site's cookie from your browser's cookie store on your Mac. macOS asks you once to allow access to the browser's "Safe Storage" keychain item. They do not read other sites' cookies, your passwords or your browsing history.</p>
+
+    <h3>Shared by all extensions</h3>
+    <p>The tool list of each extension is cached in <code>~/.cache/mcp-bridge</code>. Settings you type in Claude Desktop are kept by Claude Desktop, with fields marked as secret stored in the macOS keychain.</p>
+
+    <h2>What is not collected</h2>
+    <p>The extensions contain no analytics, crash reporting, telemetry, advertising or tracking, and send nothing to the author or to any party other than the service each one connects to. This website uses no cookies, scripts or third-party resources.</p>
+
+    <h2>Retention</h2>
+    <p>Local data stays on your Mac until you delete it. Uninstalling an extension in Claude Desktop removes the program and its settings; to remove the data too, delete the folders listed above for that extension. Data held by the services themselves (your WhatsApp messages, your Gmail, your Notion pages...) is governed by their own policies; Claude conversations by Anthropic's.</p>
+
+    <h2>Revoking access</h2>
+    <ul>
+      <li><strong>WhatsApp:</strong> on your phone, WhatsApp, Settings, Linked devices, then log out the device.</li>
+      <li><strong>Telegram:</strong> Telegram, Settings, Devices, then terminate the session. You can also delete the app at my.telegram.org.</li>
+      <li><strong>Gmail and Google Drive:</strong> remove the app at <a href="https://myaccount.google.com/connections" rel="noopener">myaccount.google.com/connections</a>, or delete your Google Cloud project.</li>
+      <li><strong>iMessage:</strong> switch off iMessage Reader in System Settings, Privacy &amp; Security, Full Disk Access, and Claude Desktop's access to Messages under Automation.</li>
+      <li><strong>Sites used through your browser login</strong> (Notion, Deezer, Cafeyn, Franc-Tireur, miLibris kiosks, MyOralia, RentalReady, OpenZeppelin Audits) <strong>and EcoleDirecte:</strong> sign out of the site, or sign out of all devices from its account settings; this ends the session the extension uses. Delete the extension's <code>~/.config</code> folder to remove its copy.</li>
+    </ul>
+
+    <h2>Children</h2>
+    <p>The extensions are meant for adults using their own accounts, and are not directed at children. The EcoleDirecte extension lets a parent read their child's school information that the school already shares with that parent's account; that information stays on the parent's Mac as described above.</p>
+
+    <h2>Security</h2>
+    <p>Sign-in files are written readable only by your macOS user. Anyone with access to your Mac user account could read them, as they could your browser's data: protect your Mac with a password and FileVault.</p>
+
+    <h2>Changes to this policy</h2>
+    <p>Changes are published on this page with a new effective date. The full history is public in the <a href="https://github.com/ClementWalter/claude-extensions/commits/main/privacy/index.html" rel="noopener">repository</a>.</p>
+
+    <h2>Contact</h2>
+    <p>Questions and requests: open an issue at <a href="https://github.com/ClementWalter/claude-extensions/issues" rel="noopener">github.com/ClementWalter/claude-extensions/issues</a>. Please do not post personal data there: issues are public.</p>
+  </main>
+
+  <footer class="wrap footer">
+    <p><a href="../">All extensions</a> · <a href="https://github.com/ClementWalter/claude-extensions/issues" rel="noopener">Questions and problems</a></p>
+  </footer>
+</body>
+</html>

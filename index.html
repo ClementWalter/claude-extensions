@@ -1,0 +1,337 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Claude Extensions</title>
+  <meta name="description" content="Free connectors for Claude Desktop and Cowork that run on your own Mac: messages, email, Notion, Google Drive, newspapers and more.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="hero">
+    <div class="wrap">
+      <h1>Claude Extensions</h1>
+      <p class="lead">Connect Claude to your messages, email, documents and subscriptions. Each extension runs on your own Mac, with your own accounts: nothing goes through a server of ours.</p>
+      <nav class="jump" aria-label="Categories"><a href="#messages">Messages</a><a href="#productivity">Productivity</a><a href="#press">Press &amp; reading</a><a href="#home">Home &amp; family</a><a href="#developer">Developer</a><a href="privacy/">Privacy</a></nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="intro">
+      <h2>What these are</h2>
+      <p>Extensions are add-ons for <a href="https://claude.ai/download" rel="noopener">Claude Desktop</a> (and Cowork, inside it). Once one is installed, you can ask Claude things like "what homework is due tomorrow?", "find the email from the plumber" or "read me today's paper", and Claude uses the extension to look it up.</p>
+      <p>They run on your Mac only. They read your data straight from the service you already use (WhatsApp, Gmail, Notion, your newspaper...) and keep sign-ins and copies on your Mac. Whatever Claude reads through them becomes part of your Claude conversation, like anything you paste into it.</p>
+      <p class="note">macOS only. Each extension asks before it sends, changes or deletes anything.</p>
+    </section>
+
+    <section class="install">
+      <h2>How to install</h2>
+      <ol class="steps">
+        <li><strong>Install Claude Desktop</strong> for Mac from <a href="https://claude.ai/download" rel="noopener">claude.ai/download</a> and sign in.</li>
+        <li><strong>Click Download</strong> on the extension you want below. A file ending in <code>.mcpb</code> lands in your Downloads folder.</li>
+        <li><strong>Double-click that file.</strong> Claude Desktop opens it.</li>
+        <li><strong>Click Install.</strong> Fill in the settings if the extension has any, then follow its setup steps. The first start takes a minute while it gets ready.</li>
+      </ol>
+      <p class="note">To remove one: Claude Desktop, Settings, Extensions, then the extension, Uninstall.</p>
+    </section>
+
+    <section class="group" id="messages">
+      <h2>Messages</h2>
+      <div class="grid">
+      <article class="card" id="imessage">
+        <h3>iMessage</h3>
+        <p class="desc">Read, search and send your iMessages and SMS from Claude.</p>
+        <p class="label">What you need</p>
+        <ul class="needs"><li>A Mac with Messages signed in</li><li>Full Disk Access for the small iMessage Reader helper (one switch in System Settings)</li></ul>
+        <details>
+          <summary>Setup steps</summary>
+          <p>Reads the Messages history on this Mac and sends messages through the Messages app.</p>
+          <p>Setup: macOS protects the Messages database behind Full Disk Access. Claude does not need it: a small helper app, iMessage Reader, holds that access alone and keeps a private copy of your messages for this extension. Ask Claude to run the iMessage helper-install tool (or run <code>imsg helper-install --yes</code>): it installs the helper and opens System Settings → Privacy &amp; Security → Full Disk Access. Switch on "iMessage Reader" there (drag it in from the Finder window if it is not listed). No restart needed. Sending asks once for permission to control Messages.</p>
+        </details>
+        <p class="actions">
+          <a class="button" href="https://github.com/ClementWalter/imessage-cli/releases/latest/download/imessage-cli.mcpb" download>Download</a>
+          <a class="source" href="https://github.com/ClementWalter/imessage-cli" rel="noopener">Source code</a>
+        </p>
+      </article>
+      <article class="card" id="whatsapp">
+        <h3>WhatsApp</h3>
+        <p class="desc">Read, search and send your own WhatsApp chats from Claude.</p>
+        <p class="label">What you need</p>
+        <ul class="needs"><li>Your phone with WhatsApp, to scan a QR code once</li></ul>
+        <p class="risk"><strong>Good to know.</strong> This is an unofficial client of WhatsApp&#x27;s protocol, not an app approved by WhatsApp. Using it is against WhatsApp&#x27;s terms of service, and WhatsApp can restrict or ban accounts that use unofficial clients. Use it only if you accept that risk.</p>
+        <details>
+          <summary>Setup steps</summary>
+          <p>Connects to your WhatsApp account as a linked device, like WhatsApp Desktop.</p>
+          <p>Setup: in Claude, ask "link my WhatsApp". A page with a QR code opens in your browser. On your phone: WhatsApp → Settings → Linked devices → Link a device, and scan it. Then ask Claude to pull your messages.</p>
+          <p>Your keys and messages stay on this Mac. You can unlink it any time from WhatsApp → Settings → Linked devices.</p>
+        </details>
+        <p class="actions">
+          <a class="button" href="https://github.com/ClementWalter/whatsapp-cli/releases/latest/download/whatsapp-cli.mcpb" download>Download</a>
+          <a class="source" href="https://github.com/ClementWalter/whatsapp-cli" rel="noopener">Source code</a>
+        </p>
+      </article>
+      <article class="card" id="tg">
+        <h3>Telegram</h3>
+        <p class="desc">Read, search and send your own Telegram chats from Claude.</p>
+        <p class="label">What you need</p>
+        <ul class="needs"><li>A free API id and hash from my.telegram.org (two minutes)</li><li>Your phone with Telegram, to scan a QR code once</li></ul>
+        <details>
+          <summary>Setup steps</summary>
+          <p>Connects to your Telegram account as a linked device, like Telegram Desktop.</p>
+          <p>Setup:</p>
+          <ol><li>Go to <a href="https://my.telegram.org" rel="noopener">https://my.telegram.org</a>, log in with your phone number, open API development tools and create an app (any name). Copy its App api_id and App api_hash into this extension's settings.</li><li>In Claude, ask: "link my Telegram". A page with a QR code opens in your browser. On your phone: Telegram → Settings → Devices → Link Desktop Device, and scan it.</li></ol>
+          <p>Your session stays on this Mac. You can disconnect it any time from Telegram → Settings → Devices.</p>
+        </details>
+        <p class="actions">
+          <a class="button" href="https://github.com/ClementWalter/tg-cli/releases/latest/download/tg-cli.mcpb" download>Download</a>
+          <a class="source" href="https://github.com/ClementWalter/tg-cli" rel="noopener">Source code</a>
+        </p>
+      </article>
+      <article class="card" id="email">
+        <h3>Email</h3>
+        <p class="desc">Read, search and answer your email from Claude: Gmail through your own Google sign-in, or any account of the Mac&#x27;s Mail app.</p>
+        <p class="label">What you need</p>
+        <ul class="needs"><li>For Gmail: a free Google Cloud project of your own. Ask Claude in Chrome to guide you, click by click</li><li>Or: any account already set up in the Mac's Mail app, nothing else</li></ul>
+        <details>
+          <summary>Setup steps</summary>
+          <p>Reads, searches and answers your email: lists and searches messages, reads them, saves attachments, and writes replies and drafts. Nothing is ever sent without your confirmation in Claude.</p>
+          <p>Setup with Gmail (about five minutes, free, once):</p>
+          <ol><li>Install Claude in Chrome and sign in to Google in Chrome with the address to connect.</li><li>In Claude, ask: "set up my email". Claude calls <code>google_setup</code> and walks you through Google Cloud Console in Chrome, click by click: a project of your own, the Gmail API, and a sign-in client of type Desktop app. You type passwords and accept terms yourself.</li><li>Paste the Client ID and Client secret Google shows into this extension's settings (or just leave the downloaded file in Downloads).</li><li>Claude calls <code>connect</code>: a Google page opens, you choose your account and allow access. Your sign-in stays on this Mac.</li></ol>
+          <p>The same Google project and client also work for the Google Drive extension. Connect more addresses by asking Claude to connect another account.</p>
+          <p>On a Mac without Google: accounts already set up in the Mail app (iCloud, Outlook, any IMAP, Gmail too) work with no Google project. Ask Claude to connect your Mail app account, and allow Claude to control Mail when macOS asks. Search is slower there.</p>
+        </details>
+        <p class="actions">
+          <a class="button" href="https://github.com/ClementWalter/email-cli/releases/latest/download/email-cli.mcpb" download>Download</a>
+          <a class="source" href="https://github.com/ClementWalter/email-cli" rel="noopener">Source code</a>
+        </p>
+      </article>
+      </div>
+    </section>
+    <section class="group" id="productivity">
+      <h2>Productivity</h2>
+      <div class="grid">
+      <article class="card" id="notion">
+        <h3>Notion</h3>
+        <p class="desc">Read, search and edit your Notion workspace from Claude, as yourself.</p>
+        <p class="label">What you need</p>
+        <ul class="needs"><li>Signed in at notion.so in Chrome, Arc, Brave or Edge</li></ul>
+        <p class="risk"><strong>Good to know.</strong> Reuses your website login and talks to the site&#x27;s private, unofficial API, as you. The site can change it at any time, which can break the extension until it is updated.</p>
+        <details>
+          <summary>Setup steps</summary>
+          <p>Search your Notion workspace, read pages and databases (with filters and chosen columns), list comments including resolved ones, and create or edit pages, rows and comments.</p>
+          <p>Unlike Notion's official connector, this extension acts as the account you are signed in with: it sees every page and database that account can see, with no integration to add page by page. Every change it makes appears in Notion under your name.</p>
+          <p>Setup:</p>
+          <ol><li>In Google Chrome (or Arc, Brave or Edge) on this Mac, sign in at <a href="https://www.notion.so" rel="noopener">https://www.notion.so</a>.</li><li>In Claude, ask: "connect my Notion". The first time, macOS asks whether <code>security</code> may use the "Chrome Safe Storage" keychain item: type your Mac password and click Always Allow. This copies your Notion session from Chrome into the extension; nothing is sent anywhere but Notion.</li><li>Ask away, for example: "search my Notion for the onboarding checklist".</li></ol>
+          <p>Several workspaces: Claude picks the first one and tells you the others. Ask "connect my Notion workspace &lt;name&gt;" to switch, or type the workspace name in this extension's settings.</p>
+          <p>When Notion signs you out (Claude will say the session expired), sign in at notion.so in Chrome again and ask Claude to connect once more.</p>
+          <p>Creating, editing or deleting anything in Notion always asks you first. Exported agent settings are saved in Downloads/Notion.</p>
+        </details>
+        <p class="actions">
+          <a class="button" href="https://github.com/ClementWalter/notion-cli/releases/latest/download/notion-cli.mcpb" download>Download</a>
+          <a class="source" href="https://github.com/ClementWalter/notion-cli" rel="noopener">Source code</a>
+        </p>
+      </article>
+      <article class="card" id="gdrive">
+        <h3>Google Drive</h3>
+        <p class="desc">Search Google Drive, read Docs, PDFs and Sheets, and fill spreadsheets from Claude, with your own Google account.</p>
+        <p class="label">What you need</p>
+        <ul class="needs"><li>A free Google Cloud project of your own (the same one as Email works). Ask Claude in Chrome to guide you, click by click</li></ul>
+        <details>
+          <summary>Setup steps</summary>
+          <p>Searches your Google Drive (including shared drives), reads Google Docs, PDFs and spreadsheets, and can write to Google Sheets when you ask it to. Several Google accounts can be connected side by side.</p>
+          <p>It signs in through your own Google Cloud project, so your files are only shared between Google and this Mac. Claude sets it up with you, once, in about ten minutes:</p>
+          <ol><li>Open Claude in Chrome (the Claude extension for Google Chrome), in the Chrome profile where you are signed in to your Google account.</li><li>Ask Claude: "set up Google Drive". Claude reads the current steps from this extension and goes through Google Cloud Console with you, click by click: a project, the Drive and Sheets APIs, the sign-in screen, and a "Desktop app" client whose file lands in your Downloads folder. If you already set up the Email extension, Claude reuses that same project.</li><li>Claude then opens Google's sign-in page: pick your account, click Advanced → Go to ... (unsafe) when Google says it has not verified the app (it is your own app), tick every box and click Continue. If macOS asks whether Claude may read your Downloads folder, click Allow.</li></ol>
+          <p>The settings below are optional: the client is found in Downloads on its own. To disconnect, ask Claude to disconnect Google Drive, or remove the app at <a href="https://myaccount.google.com/connections" rel="noopener">https://myaccount.google.com/connections</a> .</p>
+        </details>
+        <p class="actions">
+          <a class="button" href="https://github.com/ClementWalter/gdrive-cli/releases/latest/download/gdrive-cli.mcpb" download>Download</a>
+          <a class="source" href="https://github.com/ClementWalter/gdrive-cli" rel="noopener">Source code</a>
+        </p>
+      </article>
+      </div>
+    </section>
+    <section class="group" id="press">
+      <h2>Press &amp; reading</h2>
+      <div class="grid">
+      <article class="card" id="cafeyn">
+        <h3>Cafeyn</h3>
+        <p class="desc">Read the newspapers and magazines of your Cafeyn subscription from Claude.</p>
+        <p class="label">What you need</p>
+        <ul class="needs"><li>A Cafeyn subscription</li><li>Signed in at cafeyn.co in Chrome, Arc, Brave or Edge</li></ul>
+        <p class="risk"><strong>Good to know.</strong> Reuses your website login and talks to the site&#x27;s private, unofficial API, as you. The site can change it at any time, which can break the extension until it is updated.</p>
+        <details>
+          <summary>Setup steps</summary>
+          <p>Reads cafeyn.co with your subscriber account: find a title, list the articles of today's (or any past) issue, read an article as text, save it as a PDF, or archive a whole issue as page images, a PDF and text.</p>
+          <p>Setup:</p>
+          <ol><li>In Google Chrome (or Arc, Brave, Edge), sign in to <a href="https://www.cafeyn.co" rel="noopener">https://www.cafeyn.co</a> with your Cafeyn account.</li><li>In Claude, ask: "what is in today's Le Figaro on Cafeyn?". The first time, macOS asks whether <code>security</code> may use the "Chrome Safe Storage" keychain item: type your Mac password and click Always Allow. This is how the extension reuses your browser session; nothing is sent anywhere else.</li></ol>
+          <p>If Claude says the Cafeyn session expired, sign in to cafeyn.co in Chrome again and ask once more. PDFs and issue archives are saved in Downloads/cafeyn.</p>
+        </details>
+        <p class="actions">
+          <a class="button" href="https://github.com/ClementWalter/cafeyn-cli/releases/latest/download/cafeyn-cli.mcpb" download>Download</a>
+          <a class="source" href="https://github.com/ClementWalter/cafeyn-cli" rel="noopener">Source code</a>
+        </p>
+      </article>
+      <article class="card" id="franc-tireur">
+        <h3>Franc-Tireur</h3>
+        <p class="desc">Read Franc-Tireur, the weekly, from Claude: site articles, issue contents, search and readable PDFs.</p>
+        <p class="label">What you need</p>
+        <ul class="needs"><li>A Franc-Tireur subscription</li><li>Signed in at franc-tireur.fr in Chrome, Arc, Brave or Edge</li></ul>
+        <p class="risk"><strong>Good to know.</strong> Reuses your website login and talks to the site&#x27;s private, unofficial API, as you. The site can change it at any time, which can break the extension until it is updated.</p>
+        <details>
+          <summary>Setup steps</summary>
+          <p>Reads Franc-Tireur with your subscriber account: articles from franc-tireur.fr (paywalled ones included), the contents of each issue, site search, and the printed edition from the digital kiosk (liseuse) as a readable PDF.</p>
+          <p>Setup:</p>
+          <ol><li>In Google Chrome (or Arc, Brave, Edge), sign in to <a href="https://www.franc-tireur.fr" rel="noopener">https://www.franc-tireur.fr</a> with your subscriber account. For the printed edition, also open <a href="https://digital.franc-tireur.fr" rel="noopener">https://digital.franc-tireur.fr</a> and sign in there.</li><li>In Claude, ask: "who am I on Franc-Tireur?". The first time, macOS asks whether <code>security</code> may use the "Chrome Safe Storage" keychain item: type your Mac password and click Always Allow. This is how the extension reuses your browser session; nothing is sent anywhere else.</li></ol>
+          <p>The site session lasts about a day: if Claude says the paywall refused the session, reload franc-tireur.fr in Chrome and ask again. PDFs, pages and issue archives are saved in Downloads/franc-tireur.</p>
+        </details>
+        <p class="actions">
+          <a class="button" href="https://github.com/ClementWalter/franc-tireur-cli/releases/latest/download/franc-tireur-cli.mcpb" download>Download</a>
+          <a class="source" href="https://github.com/ClementWalter/franc-tireur-cli" rel="noopener">Source code</a>
+        </p>
+      </article>
+      <article class="card" id="milibris">
+        <h3>miLibris kiosks</h3>
+        <p class="desc">Read the digital editions of your miLibris newspaper and magazine subscriptions from Claude.</p>
+        <p class="label">What you need</p>
+        <ul class="needs"><li>A subscription to a title read on a miLibris kiosk</li><li>Signed in to that kiosk in Chrome, Arc, Brave or Edge</li></ul>
+        <p class="risk"><strong>Good to know.</strong> Reuses your website login and talks to the site&#x27;s private, unofficial API, as you. The site can change it at any time, which can break the extension until it is updated.</p>
+        <details>
+          <summary>Setup steps</summary>
+          <p>miLibris runs the digital kiosk (liseuse) of many French titles, on addresses like digital.franc-tireur.fr. This extension reads the issues you subscribe to: tables of contents, articles as text, full-text search, and readable PDFs of whole issues.</p>
+          <p>Setup:</p>
+          <ol><li>In Google Chrome (or Arc, Brave, Edge), open your title's digital kiosk and sign in with your subscriber account.</li><li>In Claude, ask: "list my miLibris kiosks". The first time, macOS asks whether <code>security</code> may use the "Chrome Safe Storage" keychain item: type your Mac password and click Always Allow. This is how the extension reuses your browser session; nothing is sent anywhere else.</li><li>If you subscribe to several kiosks, put the one you read most in this extension's settings (Kiosk address), or name it when you ask.</li></ol>
+          <p>PDFs and issue archives are saved in Downloads/milibris. If a request says the session is missing, sign in to the kiosk in Chrome again and ask once more.</p>
+        </details>
+        <p class="actions">
+          <a class="button" href="https://github.com/ClementWalter/milibris-cli/releases/latest/download/milibris-cli.mcpb" download>Download</a>
+          <a class="source" href="https://github.com/ClementWalter/milibris-cli" rel="noopener">Source code</a>
+        </p>
+      </article>
+      </div>
+    </section>
+    <section class="group" id="home">
+      <h2>Home &amp; family</h2>
+      <div class="grid">
+      <article class="card" id="ecoledirecte">
+        <h3>EcoleDirecte</h3>
+        <p class="desc">Your child&#x27;s grades, homework, timetable and school messages from EcoleDirecte, in Claude.</p>
+        <p class="label">What you need</p>
+        <ul class="needs"><li>Your EcoleDirecte username and password (parent or student), typed in a page on your Mac</li></ul>
+        <p class="risk"><strong>Good to know.</strong> Talks to EcoleDirecte&#x27;s private, unofficial API, as you. EcoleDirecte can change it at any time, which can break the extension until it is updated.</p>
+        <details>
+          <summary>Setup steps</summary>
+          <p>Reads your EcoleDirecte account (parent or student): grades, homework, timetable and the school messaging. It can also reply to or send a message to the school, always asking you first.</p>
+          <p>Setup:</p>
+          <ol><li>In Claude, ask: "connect my EcoleDirecte". A page opens in your browser.</li><li>Sign in there with your usual EcoleDirecte username and password. They stay on this computer and are never typed into the chat.</li><li>The first time, EcoleDirecte asks a security question (for example your year of birth): click the right answer on the page.</li><li>Back in Claude, ask for example: "what homework is due tomorrow?".</li></ol>
+          <p>You only do this once: the extension signs in again by itself when the session expires.</p>
+        </details>
+        <p class="actions">
+          <a class="button" href="https://github.com/ClementWalter/ecoledirecte-cli/releases/latest/download/ecoledirecte-cli.mcpb" download>Download</a>
+          <a class="source" href="https://github.com/ClementWalter/ecoledirecte-cli" rel="noopener">Source code</a>
+        </p>
+      </article>
+      <article class="card" id="myoralia">
+        <h3>MyOralia</h3>
+        <p class="desc">Read your MyOralia co-owner account from Claude: building, statement, meetings and documents.</p>
+        <p class="label">What you need</p>
+        <ul class="needs"><li>A MyOralia co-owner account</li><li>Signed in at myoralia.fr in Google Chrome</li></ul>
+        <p class="risk"><strong>Good to know.</strong> Reuses your website login and talks to the site&#x27;s private, unofficial API, as you. The site can change it at any time, which can break the extension until it is updated.</p>
+        <details>
+          <summary>Setup steps</summary>
+          <p>Reads your MyOralia (Oralia) co-owner space: your building and shares, the account statement and balance, general meetings, the agency's contacts, the agenda, and every PDF document, which it can save to your Mac.</p>
+          <p>Setup:</p>
+          <ol><li>In Google Chrome, sign in at <a href="https://myoralia.fr" rel="noopener">https://myoralia.fr</a> with your co-owner account.</li><li>In Claude, ask: "connect my MyOralia account". macOS asks whether <code>security</code> may use the "Chrome Safe Storage" keychain item: type your Mac password and click Always Allow. This copies your Chrome session into the extension; nothing is sent anywhere else.</li></ol>
+          <p>When MyOralia signs you out (Claude will say the session expired), sign in at myoralia.fr in Chrome again and ask Claude to connect once more. Documents are saved in the Download folder from this extension's settings (Downloads/MyOralia by default).</p>
+        </details>
+        <p class="actions">
+          <a class="button" href="https://github.com/ClementWalter/myoralia-cli/releases/latest/download/myoralia-cli.mcpb" download>Download</a>
+          <a class="source" href="https://github.com/ClementWalter/myoralia-cli" rel="noopener">Source code</a>
+        </p>
+      </article>
+      <article class="card" id="rentalready">
+        <h3>RentalReady</h3>
+        <p class="desc">Read your RentalReady owner space from Claude: bookings, revenue, occupancy and property details.</p>
+        <p class="label">What you need</p>
+        <ul class="needs"><li>A RentalReady owner account</li><li>Signed in at pms.rentalready.io in Chrome, Arc, Brave or Edge</li></ul>
+        <p class="risk"><strong>Good to know.</strong> Reuses your website login and talks to the site&#x27;s private, unofficial API, as you. The site can change it at any time, which can break the extension until it is updated.</p>
+        <details>
+          <summary>Setup steps</summary>
+          <p>Reads the RentalReady owner portal (pms.rentalready.io) as you: this month's occupancy and net revenue, every reservation with its financial breakdown (rent, commission, cleaning, platform fees, tourist tax), monthly totals, a year-end projection, and your property's details.</p>
+          <p>Setup:</p>
+          <ol><li>In Google Chrome (or Arc, Brave, Edge), sign in to <a href="https://pms.rentalready.io" rel="noopener">https://pms.rentalready.io</a> with your owner account, including the two-factor code.</li><li>In Claude, ask: "how is my RentalReady rental doing this month?". The first time, macOS asks whether <code>security</code> may use the browser's "Safe Storage" keychain item: type your Mac password and click Always Allow. This is how the extension reuses your browser session; nothing is sent anywhere else.</li></ol>
+          <p>The portal signs you out after about two weeks. When Claude says the session expired, sign in to pms.rentalready.io in Chrome again and ask once more.</p>
+        </details>
+        <p class="actions">
+          <a class="button" href="https://github.com/ClementWalter/rentalready-cli/releases/latest/download/rentalready-cli.mcpb" download>Download</a>
+          <a class="source" href="https://github.com/ClementWalter/rentalready-cli" rel="noopener">Source code</a>
+        </p>
+      </article>
+      <article class="card" id="deezer">
+        <h3>Deezer</h3>
+        <p class="desc">Search Deezer and manage your likes and playlists from Claude.</p>
+        <p class="label">What you need</p>
+        <ul class="needs"><li>Nothing for search and charts</li><li>For your likes and playlists: signed in at deezer.com in Chrome, Arc, Brave or Edge</li></ul>
+        <p class="risk"><strong>Good to know.</strong> Your account features reuse your Deezer login and Deezer&#x27;s private, unofficial web API, as you. Deezer can change it at any time, which can break them until the extension is updated.</p>
+        <details>
+          <summary>Setup steps</summary>
+          <p>Search tracks, albums and artists, browse charts and an artist's top tracks and radio: no setup needed.</p>
+          <p>To use your own account (likes, playlists, Flow, listening history):</p>
+          <ol><li>Log in at <a href="https://www.deezer.com" rel="noopener">https://www.deezer.com</a> in Google Chrome (or Arc, Brave or Edge) on this Mac.</li><li>Ask Claude, for example: "what are my latest Deezer likes?". The extension reads your Deezer session from the browser.</li><li>The first time, macOS may ask whether to allow access to "Chrome Safe Storage": click Always Allow.</li></ol>
+          <p>If that does not work, paste your arl cookie into this extension's settings instead (deezer.com → View → Developer → Developer Tools → Application → Cookies → arl).</p>
+          <p>Liking a track or changing a playlist always asks you first.</p>
+        </details>
+        <p class="actions">
+          <a class="button" href="https://github.com/ClementWalter/deezer-cli/releases/latest/download/deezer-cli.mcpb" download>Download</a>
+          <a class="source" href="https://github.com/ClementWalter/deezer-cli" rel="noopener">Source code</a>
+        </p>
+      </article>
+      </div>
+    </section>
+    <section class="group" id="developer">
+      <h2>Developer</h2>
+      <div class="grid">
+      <article class="card" id="merkl">
+        <h3>Merkl</h3>
+        <p class="desc">Read Merkl incentive campaigns, their budgets, windows and scoring, from Claude.</p>
+        <p class="label">What you need</p>
+        <ul class="needs"><li>Nothing: Merkl's campaign data is public</li><li>Optional, for airdrop checks: an Ethereum RPC URL (Alchemy, Infura...)</li></ul>
+        <details>
+          <summary>Setup steps</summary>
+          <p>Reads Merkl's public campaign data: the campaigns a wallet created, the campaigns on a token, their budgets, APR targets, windows, scoring progress and cancellations. Read-only: it never signs or sends anything.</p>
+          <p>Setup: none. Ask Claude, for example: "list the live Merkl campaigns created by 0x…" or "show Merkl campaign 0x…".</p>
+          <p>Optional, to check whether a campaign paid through a confidential airdrop was really funded ("was this campaign paid?"), fill these settings (Claude Desktop → Settings → Extensions → Merkl → Configure):</p>
+          <ol><li>Ethereum RPC URL: an archive-capable RPC endpoint, such as an Alchemy or Infura URL with its key. Public RPCs refuse the history reads this needs.</li><li>Airdrop campaign types and Airdrop factories: ask your team for the values.</li><li>Merkl API key (optional): the campaign creator's key, to net out what Merkl hands back to the creator.</li></ol>
+        </details>
+        <p class="actions">
+          <a class="button" href="https://github.com/ClementWalter/merkl-cli/releases/latest/download/merkl-cli.mcpb" download>Download</a>
+          <a class="source" href="https://github.com/ClementWalter/merkl-cli" rel="noopener">Source code</a>
+        </p>
+      </article>
+      <article class="card" id="oz-audits">
+        <h3>OpenZeppelin Audits</h3>
+        <p class="desc">Read OpenZeppelin audit reports and respond to their issues from Claude.</p>
+        <p class="label">What you need</p>
+        <ul class="needs"><li>Access to your project on audits.openzeppelin.com</li><li>Signed in there in Google Chrome</li></ul>
+        <p class="risk"><strong>Good to know.</strong> Reuses your website login and talks to the site&#x27;s private, unofficial API, as you. The site can change it at any time, which can break the extension until it is updated.</p>
+        <details>
+          <summary>Setup steps</summary>
+          <p>Reads the audit reports of your project on audits.openzeppelin.com, and can submit or remove your team's official response to an issue.</p>
+          <p>Setup:</p>
+          <ol><li>Install Google Chrome if it is not on this Mac, and sign in at <a href="https://audits.openzeppelin.com" rel="noopener">https://audits.openzeppelin.com</a> in it.</li><li>Open your project there and copy the part of the address after audits.openzeppelin.com/ (for example your-org). Paste it into this extension's Organization setting.</li><li>Ask Claude, for example: "list our OpenZeppelin audits". The extension reads your session from Chrome. The first time, macOS may ask whether to allow access to "Chrome Safe Storage": click Always Allow.</li></ol>
+          <p>When the session expires, sign in again in Chrome and retry. Submitting or removing a response always asks you first.</p>
+        </details>
+        <p class="actions">
+          <a class="button" href="https://github.com/ClementWalter/oz-audits-cli/releases/latest/download/oz-audits-cli.mcpb" download>Download</a>
+          <a class="source" href="https://github.com/ClementWalter/oz-audits-cli" rel="noopener">Source code</a>
+        </p>
+      </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="wrap footer">
+    <p><a href="privacy/">Privacy policy</a> · <a href="https://github.com/ClementWalter/claude-extensions/issues" rel="noopener">Questions and problems</a></p>
+    <p>Independent projects, not made or endorsed by Anthropic or by the services they connect to. Names belong to their owners.</p>
+  </footer>
+</body>
+</html>
