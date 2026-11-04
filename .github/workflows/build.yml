@@ -1,0 +1,36 @@
+# Rebuild index.html from the released extensions' mcpb.json, so a CLI that ships a
+# new .mcpb (or edits its card) appears on the page without hand-editing HTML.
+# A CLI release can trigger it at once: `gh workflow run build.yml -R ClementWalter/claude-extensions`.
+name: build
+
+on:
+  schedule:
+    - cron: "17 */6 * * *"
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: [build.py, template.html, tests/**]
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: astral-sh/setup-uv@07a047e608db84b3d8c06cd9a7c7dcc9c355c18e # v10.3.2
+      - run: uv run --script tests/test_build.py
+      - name: Rebuild the page
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: uv run --script build.py
+      - name: Commit if changed
+        run: |
+          git diff --quiet index.html && exit 0
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -am "index.html: rebuild from released extensions"
+          git push
