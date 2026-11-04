@@ -266,6 +266,24 @@
           <a class="source" href="https://github.com/ClementWalter/myoralia-cli" rel="noopener">Source code</a>
         </p>
       </article>
+      <article class="card" id="matera">
+        <h3>Matera</h3>
+        <p class="desc">Read your Matera co-ownership account from Claude: documents, general meetings, accounts, and a full copy of every file.</p>
+        <p class="label">What you need</p>
+        <ul class="needs"><li>A Matera co-owner account</li><li>Signed in at app.matera.eu in Chrome, Arc, Brave or Edge</li></ul>
+        <p class="risk"><strong>Good to know.</strong> Reuses your website login and talks to the site's private, unofficial API, as you. The site can change it at any time, which can break the extension until it is updated.</p>
+        <details>
+          <summary>Setup steps</summary>
+          <p>Reads your Matera (syndic de copropriété) space at app.matera.eu as you: every document your account can see (meeting notices and minutes, fund calls, invoices, quotes, contracts), the general meetings, the accounting years and the general ledger, and can copy all the documents to your Mac in Matera's folder layout.</p>
+          <p>Setup:</p>
+          <ol><li>In Google Chrome (or Arc, Brave, Edge), sign in at <a href="https://app.matera.eu" rel="noopener">https://app.matera.eu</a> and keep the tab open or reload it before you ask Claude.</li><li>In Claude, ask: "connect my Matera account", then for example "list the documents of the next general meeting" or "copy all my Matera documents to my Mac".</li></ol>
+          <p>The extension reads the short-lived access token the Matera website keeps in your browser and never stores or renews it, so it cannot sign you out. If Claude says no live token was found, reload app.matera.eu in Chrome and ask again. Documents are saved in the Download folder from this extension's settings (Downloads/matera by default).</p>
+        </details>
+        <p class="actions">
+          <a class="button" href="https://github.com/ClementWalter/matera-cli/releases/latest/download/matera-cli.mcpb" download>Download</a>
+          <a class="source" href="https://github.com/ClementWalter/matera-cli" rel="noopener">Source code</a>
+        </p>
+      </article>
       <article class="card" id="rentalready">
         <h3>RentalReady</h3>
         <p class="desc">Read your RentalReady owner space from Claude: bookings, revenue, occupancy and property details.</p>
