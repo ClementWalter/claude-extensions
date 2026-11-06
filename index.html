@@ -302,6 +302,24 @@
           <a class="source" href="https://github.com/ClementWalter/rentalready-cli" rel="noopener">Source code</a>
         </p>
       </article>
+      <article class="card" id="doctolib">
+        <h3>Doctolib</h3>
+        <p class="desc">Read your Doctolib appointments and documents from Claude, and find practitioners with the earliest open slot.</p>
+        <p class="label">What you need</p>
+        <ul class="needs"><li>A Doctolib patient account (only for appointments and documents)</li><li>Signed in at doctolib.fr in Chrome, Arc, Brave, Edge or Dia</li></ul>
+        <p class="risk"><strong>Good to know.</strong> Reuses your website login and talks to the site's private, unofficial API, as you. The site can change it at any time, which can break the extension until it is updated.</p>
+        <details>
+          <summary>Setup steps</summary>
+          <p>Reads your Doctolib patient account as you: the patients on the account (you and your relatives), your upcoming and past appointments, and the documents practitioners shared with you (prescriptions, invoices, certificates), which it can save to your Mac. Without signing in, it searches practitioners in a city, lists their visit reasons and open slots, and ranks them by earliest availability. It never books or cancels an appointment.</p>
+          <p>Setup:</p>
+          <ol><li>In Google Chrome (or Arc, Brave, Edge, Dia), sign in at <a href="https://www.doctolib.fr" rel="noopener">https://www.doctolib.fr</a>.</li><li>In Claude, ask: "connect my Doctolib account", then for example "when is my next appointment?", "download my latest prescription" or "find a dentist in Paris with a slot this week".</li></ol>
+          <p>If macOS asks to let "security" use your browser's Safe Storage key, click Always Allow: that is how the extension reads your Doctolib session. If Claude says no session was found, sign in again at doctolib.fr and ask again. Opening a document marks it as read on Doctolib. Documents are saved in the Download folder from this extension's settings (Downloads/doctolib by default).</p>
+        </details>
+        <p class="actions">
+          <a class="button" href="https://github.com/ClementWalter/doctolib-cli/releases/latest/download/doctolib-cli.mcpb" download>Download</a>
+          <a class="source" href="https://github.com/ClementWalter/doctolib-cli" rel="noopener">Source code</a>
+        </p>
+      </article>
       <article class="card" id="deezer">
         <h3>Deezer</h3>
         <p class="desc">Search Deezer and manage your likes and playlists from Claude.</p>
