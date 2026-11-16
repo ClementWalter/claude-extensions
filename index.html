@@ -376,6 +376,24 @@
           <a class="source" href="https://github.com/ClementWalter/caf-cli" rel="noopener">Source code</a>
         </p>
       </article>
+      <article class="card" id="impots">
+        <h3>Impôts</h3>
+        <p class="desc">Read your impots.gouv.fr space from Claude: every tax document as PDF, and the secure messaging with your tax office.</p>
+        <p class="label">What you need</p>
+        <ul class="needs"><li>An impots.gouv.fr account (numéro fiscal or FranceConnect)</li><li>Google Chrome installed</li></ul>
+        <p class="risk"><strong>Good to know.</strong> Reuses your website login and talks to the site's private, unofficial API, as you. The site can change it at any time, which can break the extension until it is updated.</p>
+        <details>
+          <summary>Setup steps</summary>
+          <p>Reads your impots.gouv.fr espace particulier as you: every document of the Documents page, all years (avis d'impôt, déclarations, taxes foncières and d'habitation, relances), which it saves to your Mac as PDF, and the messagerie sécurisée (your threads with the tax office, their attachments and acknowledgements of receipt). It can also write a new message to your tax office with attachments, after showing you the filled form.</p>
+          <p>Setup:</p>
+          <ol><li>Install Google Chrome if you do not have it.</li><li>In Claude, ask: "connect my impots.gouv.fr account". A separate Chrome window opens on the login page: sign in there with your numéro fiscal and password, or with FranceConnect.</li><li>Then ask for example "download all my avis d'impôt", "do I have new messages from the tax office?" or "write to my tax office about my taxe foncière".</li></ol>
+          <p>impots.gouv.fr blocks requests that do not come from a real browser, so the extension works through that dedicated Chrome window (its own profile, separate from your usual browser). Keep it open while you use the extension. The tax site signs you out quickly when idle: if Claude says you are not signed in, ask it to connect again and sign in in the window. Your password is never seen or stored by the extension. Opening a thread marks it as read on the site. Files are saved in the Download folder from this extension's settings (Downloads/impots by default).</p>
+        </details>
+        <p class="actions">
+          <a class="button" href="https://github.com/ClementWalter/impots-cli/releases/latest/download/impots-cli.mcpb" download>Download</a>
+          <a class="source" href="https://github.com/ClementWalter/impots-cli" rel="noopener">Source code</a>
+        </p>
+      </article>
       </div>
     </section>
     <section class="group" id="developer">
