@@ -35,6 +35,14 @@
       <p class="note">To remove one: Claude Desktop, Settings, Extensions, then the extension, Uninstall.</p>
     </section>
 
+    <div class="toolbar" hidden>
+      <span class="toolbar-label" id="view-label">View</span>
+      <div class="view-toggle" role="group" aria-labelledby="view-label">
+        <button type="button" data-view="tiles" aria-pressed="true">Tiles</button>
+        <button type="button" data-view="list" aria-pressed="false">List</button>
+      </div>
+    </div>
+
 {{groups}}
   </main>
 
@@ -42,5 +50,27 @@
     <p><a href="privacy/">Privacy policy</a> · <a href="https://github.com/ClementWalter/claude-extensions/issues" rel="noopener">Questions and problems</a></p>
     <p>Independent projects, not made or endorsed by Anthropic or by the services they connect to. Names belong to their owners.</p>
   </footer>
+  <script>
+    // Tiles/list switch: a class on <body>, remembered per browser. Without JS the page stays in tiles.
+    (function () {
+      var KEY = "extensions-view";
+      var bar = document.querySelector(".toolbar");
+      var buttons = bar.querySelectorAll("button[data-view]");
+      function apply(view) {
+        document.body.classList.toggle("view-list", view === "list");
+        buttons.forEach(function (b) { b.setAttribute("aria-pressed", String(b.dataset.view === view)); });
+      }
+      var saved = null;
+      try { saved = localStorage.getItem(KEY); } catch (e) {}
+      apply(saved === "list" ? "list" : "tiles");
+      buttons.forEach(function (b) {
+        b.addEventListener("click", function () {
+          apply(b.dataset.view);
+          try { localStorage.setItem(KEY, b.dataset.view); } catch (e) {}
+        });
+      });
+      bar.hidden = false;
+    })();
+  </script>
 </body>
 </html>

@@ -111,5 +111,15 @@ def test_page_nav_lists_used_groups(b, template):
     assert '<nav><a href="#home">Home &amp; family</a><a href="privacy/">Privacy</a></nav>' in page
 
 
+def test_page_has_hidden_view_switch(b):
+    page = b.page_html([{"repo": "demo-cli", "manifest": manifest()}], b.TEMPLATE.read_text())
+    assert '<div class="toolbar" hidden>' in page
+
+
+def test_page_switch_comes_before_groups(b):
+    page = b.page_html([{"repo": "demo-cli", "manifest": manifest()}], b.TEMPLATE.read_text())
+    assert page.index('class="toolbar"') < page.index('id="home"')
+
+
 if __name__ == "__main__":
     raise SystemExit(pytest.main([__file__, "-q", "-p", "no:cacheprovider"]))
