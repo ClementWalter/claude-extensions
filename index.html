@@ -341,6 +341,24 @@
           <a class="source" href="https://github.com/ClementWalter/deezer-cli" rel="noopener">Source code</a>
         </p>
       </article>
+      <article class="card" id="caf">
+        <h3>Caf</h3>
+        <p class="desc">Read your caf.fr account from Claude: payments, entitlements, letters, attestations, and email your Caf.</p>
+        <p class="label">What you need</p>
+        <ul class="needs"><li>A caf.fr account (numéro allocataire or FranceConnect)</li><li>Google Chrome installed</li></ul>
+        <p class="risk"><strong>Good to know.</strong> Reuses your website login and talks to the site's private, unofficial API, as you. The site can change it at any time, which can break the extension until it is updated.</p>
+        <details>
+          <summary>Setup steps</summary>
+          <p>Reads your caf.fr Mon Compte (Caisse d'Allocations Familiales) as you: the payments the Caf sent and the benefits each one covers, your monthly entitlements with the reason when a benefit is not due, the letters and emails of « Mes courriers, courriels », your online procedures and your household profile. It saves letters, procedure receipts, attestations (paiement, quotient familial, montant net social) and the monthly relevé de compte as PDF on your Mac, and can email your Caf through « Contacter ma Caf » after showing you the message.</p>
+          <p>Setup:</p>
+          <ol><li>Install Google Chrome if you do not have it.</li><li>In Claude, ask: "connect my Caf account". A separate Chrome window opens on the Caf login page: sign in there with your numéro allocataire and password, or with FranceConnect.</li><li>Then ask for example "what did the Caf pay me this year?", "download my attestation de quotient familial" or "why don't I get the Paje allocation de base?".</li></ol>
+          <p>caf.fr blocks requests that do not come from a real browser, so the extension works through that dedicated Chrome window (its own profile, separate from your usual browser). Keep it open while you use the extension; it remembers your sign-in between sessions until caf.fr signs you out. If Claude says you are not signed in, ask it to connect again and sign in in the window. Your password is never seen or stored by the extension. Files are saved in the Download folder from this extension's settings (Downloads/caf by default).</p>
+        </details>
+        <p class="actions">
+          <a class="button" href="https://github.com/ClementWalter/caf-cli/releases/latest/download/caf-cli.mcpb" download>Download</a>
+          <a class="source" href="https://github.com/ClementWalter/caf-cli" rel="noopener">Source code</a>
+        </p>
+      </article>
       </div>
     </section>
     <section class="group" id="developer">
